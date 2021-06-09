@@ -5,10 +5,10 @@ Deep Neural Networks for Quantitative Damage Evaluation of Building Losses Using
 
 
 
-![image](https://github.com/primegong/Find-visible-objects-by-projecting-triangles-into-the-image/raw/master/graphical_abstract.png)
+![image](http://github.com/primegong/Find-visible-objects-by-projecting-triangles-into-the-image/raw/master/graphical_abstract.png)
 
 
-![image](https://github.com/primegong/Find-visible-objects-by-projecting-triangles-into-the-image/raw/master/framework.png)
+![image](http://github.com/primegong/Find-visible-objects-by-projecting-triangles-into-the-image/raw/master/framework.png)
 
 
 @article{gong2021deep,
