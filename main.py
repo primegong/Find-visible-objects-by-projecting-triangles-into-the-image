@@ -31,7 +31,7 @@ def main(AT_file, model_list, model_path, segments_path):
 	para = parse_xml(AT_file)
 
 	#读取二维分割结果
-	total_masks = get_total_masks(segments_path, segments_list, name = model_path.split('/')[-1].split('_')[0] + '_' + segments_path.split('/')[-1])
+	total_masks, total_contours = get_total_masks(segments_path, segments_list, name = model_path.split('/')[-1].split('_')[0] + '_' + segments_path.split('/')[-1])
 	
 	for model in model_list:
 		print('\n ........................current model is: ' + model + '.............................')
@@ -44,17 +44,17 @@ def main(AT_file, model_list, model_path, segments_path):
 
 
 		#### stage 1: project 2D segments to 3D model #############
-		proj_output_path = 'output_' + method + '/projection_2D_3D/' + model[:-4] + '/'
+		proj_output_path = 'output_' + method + '/projection_2D_3D/' 
 		if not os.path.exists(proj_output_path):
 			os.makedirs(proj_output_path)
 		print('stage 1: project 2D segments to 3D model .........')
-		projection_results = projection(triangles, total_masks, segments_list, para, proj_output_path, region_size = 1000)
+		projection(triangles, total_contours, segments_list, para, proj_output_path, region_size = 1000)
 		print('Finish projection.....\n')
 	
 
 		####stage 2: 3D segments optimization ## ###################
 		print('stage 2: 3D segments optimization...')
-		opt_output_path = 'output_' + method + '/segments_optimization/' + model[:-4] + '/'
+		opt_output_path = 'output_' + method + '/segments_optimization/' 
 		if not os.path.exists(opt_output_path):
 			os.makedirs(opt_output_path)
 		opt = Optimization(proj_output_path, opt_output_path)
@@ -64,7 +64,7 @@ def main(AT_file, model_list, model_path, segments_path):
 
 		### stage 3: union 3D fragments that projected from multiview images #####
 		print('stage 3: union 3D fragments that projected from multiview images')
-		union_output_path = 'output_' + method + '/segments_union_output/' + model[:-4] + '/'
+		union_output_path = 'output_' + method + '/segments_union_output/' 
 		if not os.path.exists(union_output_path):
 			os.makedirs(union_output_path)
 		un = Union(opt_output_path, union_output_path, model[:-4]) 
@@ -73,8 +73,8 @@ def main(AT_file, model_list, model_path, segments_path):
 
 
 		# ### stage 4: 3d segment estimation ###############################
-		gt_dirpath = 'GT_segments/' + model[:-4]
-		pred_dirpath = 'output_' + method + '/segments_union_output/' + model[:-4] + '/opposite_side'
+		gt_dirpath = 'GT_segments/'
+		pred_dirpath = 'output_' + method + '/segments_union_output/opposite_side'
 		gt_segments = read_3D_segments(gt_dirpath)
 		pred_segments = read_3D_segments(pred_dirpath)
 		instance_level_precision, instance_level_recall, mIOU, matches = evaluate(gt_segments, pred_segments)
@@ -104,15 +104,16 @@ def main(AT_file, model_list, model_path, segments_path):
 
 
 if __name__ == "__main__":
+	# 模型文件
+	model_path = '3D Models/'
+	model_list = ['4_nobg-2 - test -2.obj']
 	# 空三坐标文件
 	AT_file = '3D Models/gw - AT - AT - export.xml'
-
-	# 模型文件
-	model_path = '3D Models/4_nobg - 2/'
-	model_list = ['4_nobg-2 - test -2.obj']
 	
 	# segmentation results
 	method = 'Mask R-CNN'	## Mask R-CNN, Sharp Edge Loss
-	segments_path = '2D Segments/4_nobg_images(projection area)/' + method + '/'
+	segments_path = '2D Segments/' + method + '/'
 
 	main(AT_file, model_list, model_path, segments_path) 
+
+
