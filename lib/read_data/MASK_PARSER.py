@@ -27,22 +27,12 @@ def get_total_masks(path, segments_list, name):
 		obj_coutours = {}
 		for i, [y1, x1, y2, x2] in enumerate(rois):
 			maskImage = masks[:,:, i]
-
-			#### added by yiping : resize 1024 to 1000
-			resized_maskImage = skimage.transform.resize(maskImage, (1000,1000))
-			contours, hierarchy = cv2.findContours(resized_maskImage.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE) 
+			contours, hierarchy = cv2.findContours(maskImage.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE) 
 			contours = contours[0][:,0,:]
 			obj_coutours[str(i)] = contours
 
-
-			scale = 1000.0/1024.0
-			yy1 = int(round(y1 * scale))
-			xx1 = int(round(x1 * scale))
-			yy2 = int(round(y2 * scale))
-			xx2 = int(round(x2 * scale))
-			outshape=(yy2-yy1+1, xx2-xx1+1)
-			mini_mask = skimage.transform.resize(resized_maskImage[y1:y2+1, x1:x2+1], outshape)
-			obj_mask[(yy1, xx1, yy2, xx2)] = mini_mask
+			mini_mask = maskImage[y1:y2+1, x1:x2+1]
+			obj_mask[(y1, x1, y2, x2)] = mini_mask
 
 			
 		total_masks[os.path.splitext(pkl_file)[0]] = obj_mask
