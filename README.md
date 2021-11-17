@@ -10,7 +10,7 @@
 ![image](assests/framework.png)
 
 
-# This is an implementation of the stage II 3D object segmentation, which consists of three steps: 
+# This is an implementation of the stage II: 3D object segmentation, which consists of three steps: 
 1) Assign category information and instance id to each triangle
 Based on the correspondence between oblique images and the 3D mesh model, we reproject each triangle to the oblique images to obtain the category information and instance id.
 2) Eliminiate the background cluster and visible noise
@@ -22,6 +22,15 @@ There may still be some visible outliers coming from neighboring objects or the 
 3) 3D object fragments from multiple views are integrated to build complete individual objects according to the geometric features. Object fragments projected from oblique images with different views are different parts of objects. 
 ![image](assests/integration.png)
 
+# The training_dataset and segmentation results
+Traning dataset:
+![image](assests/training_dataset.png)
+
+2D segmentation results
+![image](assests/2D_segments_compare.png)
+
+3D segmentation results
+![image](assests/results.png)
 
 
 @article{gong2021deep,
