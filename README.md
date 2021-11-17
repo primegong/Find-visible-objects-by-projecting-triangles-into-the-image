@@ -16,6 +16,7 @@ Based on the correspondence between oblique images and the 3D mesh model, we rep
 2) Eliminiate the background cluster and visible noise
 The light from the camera center passes through the foreground and background triangles at the same time. Therefore, to eliminate the background clutter, we compare the distance between the camera center and the triangle and preserve the one with shortest distance. 
 ![image](assests/projection.png)
+
 There may still be some visible outliers coming from neighboring objects or the surrounding area, which are separated from the object in 3D space and generally have fewer triangles than the object.  We remove the visible noise through spatial connectivity.
 ![image](assests/clustering.png)
 3) 3D object fragments from multiple views are integrated to build complete individual objects according to the geometric features. Object fragments projected from oblique images with different views are different parts of objects. 
