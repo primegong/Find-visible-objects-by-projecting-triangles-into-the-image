@@ -22,7 +22,7 @@ There are three stages in our approach:
 2) In addition to the invisible background clutter, there may be some visible outliers coming from neighboring objects or the surrounding area, which are separated from the object in 3D space and generally have fewer triangles than the object.  Here, we simply remove the visible noise through the analysis of spatial connectivity.
 ![image](assests/clustering.png)
 
-3) 3D object fragments from multiple views are integrated to build complete individual objects according to the geometric features. Object fragments projected from oblique images with different views are different parts of objects. 
+3) 3D object fragments from multiple views are integrated to build complete individual objects according to the geometric features. Object fragments projected from oblique images with different views are different parts of objects. To obtain the complete 3D object, we integrate fragments belonging to the same object with the benefit of the overlap of triangles and 3D bounding boxes.
 ![image](assests/integration.png)
 
 # The training_dataset and segmentation results
