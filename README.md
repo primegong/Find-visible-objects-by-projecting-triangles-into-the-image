@@ -6,6 +6,8 @@
 2. 3D object segmentation from the mesh model by projecting each triangle to the oblique images. Advanced deep learning methods are applied to generate 2D objects.
 3. Damage estimation of each object by calculating the volume reduction. To obtain the damage condition of an entire building, we define the damage degree in three levels: no or slight damage, moderate damage and severe damage, and then collect statistics on the number of damaged objects at each level.
 4. Localization of missing objects through the analysis of the building structure. The symmetry information is detected from the remaining damaged objects and used to localize the positions of missing objects. 
+![image](graphical_abstract.png)
+![image](framework.png)
 
 
 # This is an implementation of the stage II 3D object segmentation, which consists of three steps: 
@@ -16,10 +18,6 @@ The light from the camera center passes through the foreground and background tr
 There may still be some visible outliers coming from neighboring objects or the surrounding area, which are separated from the object in 3D space and generally have fewer triangles than the object.  We remove the visible noise through spatial connectivity.
 5) 3D object fragments from multiple views are integrated to build complete individual objects according to the geometric features. Object fragments projected from oblique images with different views are different parts of objects. 
 
-![image](graphical_abstract.png)
-
-
-![image](framework.png)
 
 
 @article{gong2021deep,
