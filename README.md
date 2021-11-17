@@ -14,8 +14,8 @@ There are three stages in our approach:
 # This is an implementation of the stage II: 3D object segmentation, which consists of three steps: 
 1) Assign category information and instance id to each triangle
 
-Based on the correspondence between oblique images and the 3D mesh model, we reproject each triangle to the oblique images to obtain the category information and instance id.
-2) Eliminiate the background cluster and visible noise
+2)Based on the correspondence between oblique images and the 3D mesh model, we reproject each triangle to the oblique images to obtain the category information and instance id.
+Then, eliminiate the background cluster and visible noise.
 
 a. The light from the camera center passes through the foreground and background triangles at the same time. Therefore, to eliminate the background clutter, we compare the distance between the camera center and the triangle and preserve the one with shortest distance. 
 ![image](assests/projection.png)
