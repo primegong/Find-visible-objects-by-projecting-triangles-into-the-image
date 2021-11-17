@@ -26,8 +26,6 @@ There are three stages in our approach:
 ![image](assests/integration.png)
 
 # The training_dataset and segmentation results
-Traning dataset:
-![image](assests/training_dataset.png)
 
 2D segmentation results
 ![image](assests/2D_segments_compare.png)
