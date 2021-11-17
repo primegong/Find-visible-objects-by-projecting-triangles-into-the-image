@@ -1,7 +1,8 @@
 # Deep Neural Networks for Quantitative Damage Evaluation of Building Losses Using Aerial Oblique Images: Case Study on the Great Wall (China)
 
-# In this paper, we propose a method for quantitative damage evaluation of large heritage buildings in wild areas with repetitive structures based on drone images. Unlike existing methods that focus on building surfaces, we study the damage of building components and extract hidden linear symmetry information, which is useful for localizing missing parts in architectural restoration. 
-# There are three stages in our approach:
+In this paper, we propose a method for quantitative damage evaluation of large heritage buildings in wild areas with repetitive structures based on drone images. Unlike existing methods that focus on building surfaces, we study the damage of building components and extract hidden linear symmetry information, which is useful for localizing missing parts in architectural restoration.
+
+There are three stages in our approach:
 1. Building reconstruction based on the photogrammetric method using high-resolution oblique images captured by drone.
 2. 3D object segmentation from the mesh model by projecting each triangle to the oblique images. Advanced deep learning methods are applied to generate 2D objects.
 3. Damage estimation of each object by calculating the volume reduction. To obtain the damage condition of an entire building, we define the damage degree in three levels: no or slight damage, moderate damage and severe damage, and then collect statistics on the number of damaged objects at each level.
