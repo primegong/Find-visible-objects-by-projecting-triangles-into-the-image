@@ -15,10 +15,10 @@ There are three stages in our approach:
 
 1) Assign category information and instance id to each triangle
 
-2) Based on the correspondence between oblique images and the 3D mesh model, we reproject each triangle to the oblique images to obtain the category information and instance id.
-Then, eliminiate the background cluster and visible noise. a. The light from the camera center passes through the foreground and background triangles at the same time. Therefore, to eliminate the background clutter, we compare the distance between the camera center and the triangle and preserve the one with shortest distance. 
+Based on the correspondence between oblique images and the 3D mesh model, we reproject each triangle to the oblique images to obtain the category information and instance id. The light from the camera center passes through the foreground and background triangles at the same time. Therefore, to eliminate the background clutter, we compare the distance between the camera center and the triangle and preserve the one with shortest distance. 
 ![image](assests/projection.png)
-b. There may still be some visible outliers coming from neighboring objects or the surrounding area, which are separated from the object in 3D space and generally have fewer triangles than the object.  We remove the visible noise through spatial connectivity.
+
+2) In addition to the invisible background clutter, there may still be some visible outliers coming from neighboring objects or the surrounding area, which are separated from the object in 3D space and generally have fewer triangles than the object.  We remove the visible noise through spatial connectivity.
 ![image](assests/clustering.png)
 3) 3D object fragments from multiple views are integrated to build complete individual objects according to the geometric features. Object fragments projected from oblique images with different views are different parts of objects. 
 ![image](assests/integration.png)
