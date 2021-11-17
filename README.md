@@ -1,4 +1,6 @@
-# Find-visible-objects-by-projecting-triangles-into-the-image
+# Deep Neural Networks for Quantitative Damage Evaluation of Building Losses Using Aerial Oblique Images: Case Study on the Great Wall (China)
+
+Find-visible-objects-by-projecting-triangles-into-the-image
 Find visible objects by projecting triangles into the image
 
 Deep Neural Networks for Quantitative Damage Evaluation of Building Losses Using Aerial Oblique Images Case Study on the Great Wall (China)
